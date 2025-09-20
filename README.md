@@ -1,88 +1,207 @@
 # Anysite QR Generator
 
-A simple and efficient **QR Code Generator** web application that allows users to create QR codes for any website URL. Built using **HTML, CSS, and JavaScript**, this project demonstrates DOM manipulation, input handling, and external QR code API integration.
+A powerful, full-stack web application for generating customizable QR codes for any website URL. Built with modern web technologies including React, Node.js, Express, and MongoDB.
 
----
+![QR Code Generator](https://img.shields.io/badge/QR-Code_Generator-green) ![React](https://img.shields.io/badge/React-18.2.0-blue) ![Node.js](https://img.shields.io/badge/Node.js-Express-brightgreen) ![MongoDB](https://img.shields.io/badge/MongoDB-Database-green)
 
-## 🚀 Features
+## 🌟 Features
 
-- Generate QR codes instantly for any valid URL.
-- Responsive and user-friendly design.
-- Copy-paste or type any website link to generate a QR code.
-- Download the QR code image for later use.
-- Error handling for invalid or empty inputs.
+- **QR Code Generation**: Create QR codes for any website URL
+- **Customizable Design**: Adjust colors, size, and format of QR codes
+- **User Authentication**: Secure signup/login system with JWT tokens
+- **History Tracking**: Save and manage your previously generated QR codes
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+- **Download Options**: Export QR codes in PNG, JPEG, or SVG formats
+- **Social Sharing**: Easily share QR codes on social media platforms
 
----
+## 🛠️ Technology Stack
 
-## 📂 Project Structure
+### Frontend
+- **React** 18.2.0 - User interface library
+- **React Router DOM** - Client-side routing
+- **Axios** - HTTP client for API requests
+- **QRCode.react** - QR code generation library
+- **Bootstrap** - UI framework for responsive design
+- **React-Icons** - Icon library
 
-Anysite-QR-generator/
-│── index.html # Main HTML structure
-│── style.css # Stylesheet for the UI
-│── script.js # JavaScript logic for QR generation
-│── README.md # Project documentation
+### Backend
+- **Node.js** - Runtime environment
+- **Express.js** - Web application framework
+- **MongoDB** - NoSQL database
+- **Mongoose** - MongoDB object modeling
+- **JWT** - JSON Web Tokens for authentication
+- **bcryptjs** - Password hashing
+- **CORS** - Cross-origin resource sharing
+- **dotenv** - Environment variables management
 
-yaml
-Copy code
+### Deployment
+- **Docker** - Containerization
+- **GitHub Actions** - CI/CD pipeline
+- **Render/Vercel** - Deployment platforms
 
----
+## 📦 Installation & Setup
 
-## 🛠️ Technologies Used
+### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB (local or cloud instance like MongoDB Atlas)
+- Git
 
-- **HTML5** – Markup structure
-- **CSS3** – Styling and layout
-- **JavaScript (Vanilla JS)** – Logic for QR code generation
-- **QR Server API** – External API to generate QR codes
-
----
-
-## ⚙️ How It Works
-
-1. Enter a website URL in the input field.
-2. Click the **Generate QR Code** button.
-3. The app fetches a QR code image from the QR Server API.
-4. The QR code is displayed on the screen.
-5. Optionally, download the QR code for sharing or printing.
-
----
-
-## 📸 Screenshots
-
-### Homepage
-*(Add a screenshot of your app here)*
-
----
-
-## 🔧 Installation & Usage
-
-1. Clone this repository:
-
-   ```bash
-   git clone https://github.com/Muhammad-Aamir1/Anysite-QR-generator.git
-Navigate into the project folder:
-
-bash
-Copy code
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Muhammad-Aamir1/Anysite-QR-generator.git
 cd Anysite-QR-generator
-Open index.html in your browser.
+```
 
-That’s it! 🎉 You can now generate QR codes for any site.
+### 2. Backend Setup
+```bash
+# Navigate to backend directory
+cd backend
 
-🌟 Future Enhancements
-Support for text, email, and phone number QR codes.
+# Install dependencies
+npm install
 
-Dark mode UI option.
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configurations:
+# MONGODB_URI=your_mongodb_connection_string
+# JWT_SECRET=your_jwt_secret_key
+# PORT=5000
 
-Save generated QR codes history.
+# Start the development server
+npm run dev
+```
 
-Custom QR code colors and styles.
+### 3. Frontend Setup
+```bash
+# Navigate to frontend directory (in a new terminal)
+cd frontend
 
-🤝 Contributing
-Contributions are welcome! Feel free to fork this repository and submit a pull request.
+# Install dependencies
+npm install
 
-📄 License
-This project is open-source and available under the MIT License.
+# Start the development server
+npm start
+```
 
-👨‍💻 Author
-Muhammad Aamir
-Repository URL: Anysite-QR-generator
+### 4. Database Setup
+- Create a MongoDB database (local installation or MongoDB Atlas)
+- Update the `MONGODB_URI` in your backend `.env` file
+- The server will automatically create the necessary collections
+
+## 🚀 Usage
+
+1. **Register/Login**: Create an account or login to access all features
+2. **Generate QR Code**: Enter a URL and customize the QR code appearance
+3. **Save QR Code**: Store your generated QR codes in your personal history
+4. **Download/Share**: Export your QR code in various formats or share directly
+
+## 🔧 Environment Variables
+
+### Backend (.env)
+```
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRE=7d
+PORT=5000
+CLIENT_URL=http://localhost:3000
+NODE_ENV=development
+```
+
+### Frontend (.env)
+```
+REACT_APP_API_BASE_URL=http://localhost:5000/api
+REACT_APP_APP_NAME=Anysite QR Generator
+```
+
+## 📁 Project Structure
+
+```
+Anysite-QR-generator/
+├── backend/
+│   ├── controllers/     # Route controllers
+│   ├── models/          # MongoDB models
+│   ├── routes/          # API routes
+│   ├── middleware/      # Custom middleware
+│   ├── utils/           # Utility functions
+│   ├── config/          # Database configuration
+│   └── server.js        # Server entry point
+├── frontend/
+│   ├── public/          # Static files
+│   ├── src/
+│   │   ├── components/  # Reusable components
+│   │   ├── pages/       # Page components
+│   │   ├── context/     # React context
+│   │   ├── hooks/       # Custom hooks
+│   │   ├── services/    # API services
+│   │   └── styles/      # CSS files
+│   └── package.json
+├── docker-compose.yml   # Docker compose configuration
+├── Dockerfile           # Backend Dockerfile
+└── README.md
+```
+
+## 🐳 Docker Deployment
+
+### Using Docker Compose
+```bash
+# Start all services
+docker-compose up -d
+
+# Stop services
+docker-compose down
+```
+
+### Individual Containers
+```bash
+# Build and run backend
+cd backend
+docker build -t qr-backend .
+docker run -p 5000:5000 qr-backend
+
+# Build and run frontend
+cd frontend
+docker build -t qr-frontend .
+docker run -p 3000:3000 qr-frontend
+```
+
+## 📊 API Endpoints
+
+### Authentication
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/auth/me` - Get current user (protected)
+
+### QR Codes
+- `POST /api/qr/generate` - Generate a new QR code (protected)
+- `GET /api/qr/history` - Get user's QR code history (protected)
+- `DELETE /api/qr/:id` - Delete a QR code (protected)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+Muhammad Aamir - [GitHub](https://github.com/Muhammad-Aamir1)
+
+## 🙏 Acknowledgments
+
+- QR code generation using [qrcode.react](https://www.npmjs.com/package/qrcode.react)
+- Icons from [React Icons](https://react-icons.github.io/react-icons/)
+- UI components from [Bootstrap](https://getbootstrap.com/)
+
+## 📞 Support
+
+If you have any questions or issues, please open an issue on the GitHub repository or contact the maintainer.
+
+---
+
+⭐ Star this repository if you found it helpful!
